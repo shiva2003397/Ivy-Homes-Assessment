@@ -63,7 +63,6 @@ In the script, the database schema used in the MongoDB collection "Movies" for s
 
 json
  ```bash
-Copy code
 {
   "Genre": "String",
   "List of Movies": [
