@@ -55,4 +55,4 @@ This Python script is designed to scrape IMDb for the top 20 movies across vario
 
 - getRating(s): This is a helper function used to extract and format the movie rating from a string. It parses the rating from the string and returns it in the format "X/10".
 
-- getReviews(id): This function fetches the top 10 reviews for a specific movie by its IMDb ID. It extracts review details like rating, content, and date, constructs a list of dictionaries containing this information, and returns it.
+- getReviews(id): This function fetches the top 10 latest reviews for a specific movie by its IMDb ID. It extracts review details like rating, content, and date, constructs a list of dictionaries containing this information, and returns it.
