@@ -62,6 +62,7 @@ This Python script is designed to scrape IMDb for the top 20 movies across vario
 In the script, the database schema used in the MongoDB collection "Movies" for storing IMDb movie details consists of the following structure:
 
 json
+ ```bash
 Copy code
 {
   "Genre": "String",
@@ -83,6 +84,7 @@ Copy code
     // Additional movie objects for each genre
   ]
 }
+  ```
 
 Here's a breakdown of the schema:
 
