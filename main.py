@@ -5,7 +5,8 @@ from pymongo import MongoClient
 
 # Function to get data
 def getData():
-    client = MongoClient("mongodb://localhost:27017")
+    mongourl = "mongodb://GoFood:shiv@ac-h149bmy-shard-00-00.yexynqa.mongodb.net:27017,ac-h149bmy-shard-00-01.yexynqa.mongodb.net:27017,ac-h149bmy-shard-00-02.yexynqa.mongodb.net:27017/GoFood?ssl=true&replicaSet=atlas-3e19yj-shard-0&authSource=admin&retryWrites=true&w=majority"
+    client = MongoClient(mongourl)
 
     db = client["IMDBTopMovies"]
     collection = db["Movies"]
