@@ -56,3 +56,52 @@ This Python script is designed to scrape IMDb for the top 20 movies across vario
 - getRating(s): This is a helper function used to extract and format the movie rating from a string. It parses the rating from the string and returns it in the format "X/10".
 
 - getReviews(id): This function fetches the top 10 latest reviews for a specific movie by its IMDb ID. It extracts review details like rating, content, and date, constructs a list of dictionaries containing this information, and returns it.
+
+## Database Schema
+
+In the script, the database schema used in the MongoDB collection "Movies" for storing IMDb movie details consists of the following structure:
+
+json
+Copy code
+{
+  "Genre": "String",
+  "List of Movies": [
+    {
+      "Title": "String",
+      "Year Of Release": "String",
+      "Director": "String",
+      "Cast": ["String"],
+      "Reviews": [
+        {
+          "Rating": "String",
+          "Content": "String",
+          "Date": "String"
+        },
+        // Additional review objects (up to 10) for each movie
+      ]
+    },
+    // Additional movie objects for each genre
+  ]
+}
+
+Here's a breakdown of the schema:
+
+- Genre: String field representing the movie genre.
+- List of Movies: Array containing movie objects for each genre.
+- Title: String field representing the movie title.
+- Year Of Release: String field representing the year of movie release.
+- Director: String field representing the movie director.
+- Cast: Array of strings containing the names of the cast members.
+- Reviews: Array of review objects for each movie.
+- Rating: String field representing the movie's rating out of 10.
+- Content: String field containing the review content.
+- Date: String field representing the date of the review.
+  
+This schema organizes the movie details retrieved from IMDb into a MongoDB collection, structured by genre and including movie-specific details like title, release year, director, cast members, and 10 latest reviews per movie.
+
+
+
+
+
+
+
