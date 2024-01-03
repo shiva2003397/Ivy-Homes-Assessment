@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
 
+# Function to get data
 def getData():
     client = MongoClient("mongodb://localhost:27017")
 
@@ -18,6 +19,7 @@ def getData():
     return
 
 
+# Function to process each genre
 def processGenre(genre, collection):
     data = {
         "Genre": genre,
@@ -27,6 +29,7 @@ def processGenre(genre, collection):
     return
         
 
+# Function to get BeautifulSoup object from URL
 def getSoupFromUrl(URL):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     r = requests.get(URL , headers=headers)
@@ -34,6 +37,8 @@ def getSoupFromUrl(URL):
     soup = BeautifulSoup(r.text , 'html.parser')
     return soup
 
+
+# Function to get genres
 def getGenres():
     soup = getSoupFromUrl('https://m.imdb.com/feature/genre/')
     
@@ -46,6 +51,7 @@ def getGenres():
 
     return genres
 
+# Function to get top 20 movies for a genre
 def getMovies(genre):
     # URL of any movie type depends on the its type
     soup = getSoupFromUrl('https://m.imdb.com/search/title/?title_type=feature&genres='+genre)
@@ -62,6 +68,8 @@ def getMovies(genre):
 
     return movies
 
+
+# Function to get movie details
 def getMovieDetails(id):
     soup = getSoupFromUrl('https://m.imdb.com'+id)
 
@@ -107,6 +115,7 @@ def getMovieDetails(id):
     return movieData
 
 
+# Function to get movie rating in correct format
 def getRating(s):
     ans = ""
     for ch in s:
@@ -117,6 +126,8 @@ def getRating(s):
     ans += "/10"
     return ans
 
+
+# Function to get movie reviews
 def getReviews(id):
     soup = getSoupFromUrl('https://m.imdb.com'+id+'reviews?sort=submissionDate&dir=desc')
     # print('https://m.imdb.com'+id+'reviews?sort=submissionDate&dir=desc')
@@ -154,8 +165,4 @@ def getReviews(id):
     return reviews
 
 
-# getData()
-
-
-
-# getMovies("Documentary")
+getData()
