@@ -1,7 +1,7 @@
 # IMDb Top Movies Scraper
 
 ## Purpose
-This Python script is designed to scrape IMDb for the top 20 movies across various genres and store their details, including movie title, year of release, director, cast, and reviews, into a MongoDB database. It utilizes web scraping techniques to extract data from IMDb's website and uses concurrent processing for efficient scraping.
+This Python script is designed to scrape IMDb for the top 20 movies across various genres and store their details, including movie title, year of release, director, cast, and 10 latest reviews, into a MongoDB database. It utilizes web scraping techniques to extract data from IMDb's website and uses concurrent processing for efficient scraping.
 
 ## Setup Instructions
 
